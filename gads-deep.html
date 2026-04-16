@@ -239,6 +239,119 @@
       text-transform: uppercase; font-size: 13px; position: relative;
     }
 
+    /* SCORE SECTION */
+    .score-section {
+      background: var(--dex-navy); color: var(--dex-white);
+      padding: 72px 0; position: relative; overflow: hidden;
+    }
+    .score-section::before {
+      content: ''; position: absolute; top: -180px; left: -120px;
+      width: 480px; height: 480px; border-radius: 50%;
+      border: 2px solid var(--dex-blue); opacity: 0.08;
+    }
+    .score-section::after {
+      content: ''; position: absolute; bottom: -100px; right: -80px;
+      width: 320px; height: 320px; border-radius: 50%;
+      border: 2px solid var(--dex-blue); opacity: 0.1;
+    }
+    .score-layout {
+      display: grid; grid-template-columns: minmax(280px, 340px) 1fr;
+      gap: 48px; align-items: center; position: relative;
+    }
+    .score-gauge { text-align: center; position: relative; }
+    .score-gauge svg { display: block; margin: 0 auto; }
+    .score-gauge .gauge-center {
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -50%); text-align: center;
+    }
+    .score-gauge .gauge-number {
+      font-size: 72px; font-weight: 700;
+      font-family: var(--font-primary); line-height: 1;
+      color: var(--dex-white);
+    }
+    .score-gauge .gauge-outof {
+      font-size: 14px; opacity: 0.5; letter-spacing: 1.5px;
+      text-transform: uppercase; margin-top: 4px;
+    }
+    .score-gauge .gauge-grade {
+      display: inline-block; margin-top: 16px;
+      background: var(--dex-blue); color: var(--dex-white);
+      padding: 6px 18px; border-radius: 50px;
+      font-size: 13px; font-weight: 600; letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .score-intro h2 {
+      font-size: 32px; font-weight: 400; color: var(--dex-white);
+      margin-bottom: 8px; line-height: 1.2;
+    }
+    .score-intro h2 span { color: var(--dex-blue); }
+    .score-intro .tagline {
+      font-family: var(--font-secondary); font-size: 13px; font-weight: 300;
+      letter-spacing: 2.5px; text-transform: uppercase;
+      color: var(--dex-blue); margin-bottom: 12px;
+    }
+    .score-intro p {
+      font-size: 15px; opacity: 0.75; line-height: 1.7;
+      max-width: 560px; font-family: var(--font-secondary);
+    }
+
+    .dim-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 14px; margin-top: 48px; position: relative;
+    }
+    .dim-card {
+      background: rgba(255,255,255,0.06); border-radius: var(--radius-md);
+      padding: 18px 20px; border: 1px solid rgba(0,101,247,0.15);
+      backdrop-filter: blur(8px);
+    }
+    .dim-head {
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 10px;
+    }
+    .dim-icon { font-size: 18px; }
+    .dim-name {
+      flex: 1; font-size: 13px; font-weight: 600;
+      color: var(--dex-white); font-family: var(--font-secondary);
+    }
+    .dim-weight {
+      font-size: 10px; color: rgba(255,255,255,0.4);
+      text-transform: uppercase; letter-spacing: 0.5px;
+    }
+    .dim-score-row {
+      display: flex; align-items: baseline; justify-content: space-between;
+      margin-bottom: 8px;
+    }
+    .dim-score-num {
+      font-size: 32px; font-weight: 700;
+      font-family: var(--font-primary); color: var(--dex-white); line-height: 1;
+    }
+    .dim-score-num span {
+      font-size: 13px; opacity: 0.4; font-weight: 400; margin-left: 4px;
+    }
+    .dim-verdict {
+      font-size: 11px; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.8px;
+      color: var(--dex-blue);
+    }
+    .dim-bar-bg {
+      height: 6px; background: rgba(255,255,255,0.1);
+      border-radius: 3px; overflow: hidden; margin-bottom: 8px;
+    }
+    .dim-bar-fill {
+      height: 100%; border-radius: 3px; transition: width 0.6s;
+    }
+    .dim-detail {
+      font-size: 11px; color: rgba(255,255,255,0.55);
+      line-height: 1.5;
+    }
+
+    @media (max-width: 768px) {
+      .score-layout { grid-template-columns: 1fr; gap: 32px; text-align: center; }
+      .score-intro p { margin: 0 auto; }
+      .score-gauge .gauge-number { font-size: 56px; }
+    }
+
     /* TREND CHART */
     .chart-wrapper {
       background: var(--dex-white); border-radius: var(--radius-md);
@@ -292,6 +405,159 @@
       <div class="hero-stat"><span class="num">11</span><span class="label">Kampane</span></div>
     </div>
     
+  </div>
+</div>
+
+<!-- ═════════ ACCOUNT HEALTH SCORE ═════════ -->
+<div class="score-section">
+  <div class="container">
+    <div class="score-layout">
+      <div class="score-gauge">
+        <svg width="220" height="220" viewBox="0 0 220 220">
+          <!-- Background track -->
+          <circle cx="110" cy="110" r="82" fill="none"
+                  stroke="rgba(255,255,255,0.08)" stroke-width="14"/>
+          <!-- Decorative inner ring -->
+          <circle cx="110" cy="110" r="62" fill="none"
+                  stroke="rgba(0,101,247,0.15)" stroke-width="1"/>
+          <!-- Progress arc (rotated -90deg to start at top) -->
+          <circle cx="110" cy="110" r="82" fill="none"
+                  stroke="#0065F7" stroke-width="14"
+                  stroke-linecap="round"
+                  stroke-dasharray="515.22"
+                  stroke-dashoffset="82.44"
+                  transform="rotate(-90 110 110)"
+                  style="transition: stroke-dashoffset 1.2s ease-out;"/>
+        </svg>
+        <div class="gauge-center">
+          <div class="gauge-number">84</div>
+          <div class="gauge-outof">/ 100</div>
+          <div class="gauge-grade" style="background:#0065F7">B · Dobré</div>
+        </div>
+      </div>
+
+      <div class="score-intro">
+        <div class="tagline">Account Health Score</div>
+        <h2>Váš Google Ads účet má <span>skóre 84/100</span></h2>
+        <p>Komplexné hodnotenie zdravia účtu naprieč 7 dimenziami — ROAS výkon, zbytočný spend, časové nastavenie, device biddingy, stabilita, kvalita search termov a diverzita kanálov. Skóre je vážený priemer; každá dimenzia má vlastnú váhu podľa dopadu na výkon.</p>
+      </div>
+    </div>
+
+    <div class="dim-grid">
+      
+        <div class="dim-card">
+          <div class="dim-head">
+            <span class="dim-icon">📈</span>
+            <div class="dim-name">ROAS Performance</div>
+            <div class="dim-weight">w. 25</div>
+          </div>
+          <div class="dim-score-row">
+            <div class="dim-score-num">100<span>/100</span></div>
+            <div class="dim-verdict">Vynikajúce</div>
+          </div>
+          <div class="dim-bar-bg">
+            <div class="dim-bar-fill" style="width:100%;background:var(--dex-teal)"></div>
+          </div>
+          <div class="dim-detail">Account ROAS 5.92x · target 3.0x</div>
+        </div>
+        
+        <div class="dim-card">
+          <div class="dim-head">
+            <span class="dim-icon">💸</span>
+            <div class="dim-name">Wasted Spend</div>
+            <div class="dim-weight">w. 20</div>
+          </div>
+          <div class="dim-score-row">
+            <div class="dim-score-num">100<span>/100</span></div>
+            <div class="dim-verdict">Čistý účet</div>
+          </div>
+          <div class="dim-bar-bg">
+            <div class="dim-bar-fill" style="width:100%;background:var(--dex-teal)"></div>
+          </div>
+          <div class="dim-detail">€0 wasted (0.0% of spend)</div>
+        </div>
+        
+        <div class="dim-card">
+          <div class="dim-head">
+            <span class="dim-icon">📅</span>
+            <div class="dim-name">Schedule Efficiency</div>
+            <div class="dim-weight">w. 15</div>
+          </div>
+          <div class="dim-score-row">
+            <div class="dim-score-num">85<span>/100</span></div>
+            <div class="dim-verdict">Výborne načasované</div>
+          </div>
+          <div class="dim-bar-bg">
+            <div class="dim-bar-fill" style="width:85%;background:var(--dex-teal)"></div>
+          </div>
+          <div class="dim-detail">1 hod. pod pause thresholdom · 5% hodín pod target ROAS</div>
+        </div>
+        
+        <div class="dim-card">
+          <div class="dim-head">
+            <span class="dim-icon">📱</span>
+            <div class="dim-name">Device Bid Optimization</div>
+            <div class="dim-weight">w. 15</div>
+          </div>
+          <div class="dim-score-row">
+            <div class="dim-score-num">35<span>/100</span></div>
+            <div class="dim-verdict">Zlé nastavenie</div>
+          </div>
+          <div class="dim-bar-bg">
+            <div class="dim-bar-fill" style="width:35%;background:var(--dex-navy)"></div>
+          </div>
+          <div class="dim-detail">2 z 3 zariadení vyžaduje úpravu bidu</div>
+        </div>
+        
+        <div class="dim-card">
+          <div class="dim-head">
+            <span class="dim-icon">📊</span>
+            <div class="dim-name">Anomaly Stability</div>
+            <div class="dim-weight">w. 10</div>
+          </div>
+          <div class="dim-score-row">
+            <div class="dim-score-num">85<span>/100</span></div>
+            <div class="dim-verdict">Stabilný</div>
+          </div>
+          <div class="dim-bar-bg">
+            <div class="dim-bar-fill" style="width:85%;background:var(--dex-teal)"></div>
+          </div>
+          <div class="dim-detail">1 anomálnych dní z 30</div>
+        </div>
+        
+        <div class="dim-card">
+          <div class="dim-head">
+            <span class="dim-icon">🔍</span>
+            <div class="dim-name">Search Term Quality</div>
+            <div class="dim-weight">w. 10</div>
+          </div>
+          <div class="dim-score-row">
+            <div class="dim-score-num">90<span>/100</span></div>
+            <div class="dim-verdict">Čistý portfolio</div>
+          </div>
+          <div class="dim-bar-bg">
+            <div class="dim-bar-fill" style="width:90%;background:var(--dex-teal)"></div>
+          </div>
+          <div class="dim-detail">11 winners · 2 losers</div>
+        </div>
+        
+        <div class="dim-card">
+          <div class="dim-head">
+            <span class="dim-icon">🎯</span>
+            <div class="dim-name">Channel Diversity</div>
+            <div class="dim-weight">w. 5</div>
+          </div>
+          <div class="dim-score-row">
+            <div class="dim-score-num">60<span>/100</span></div>
+            <div class="dim-verdict">Obmedzený mix</div>
+          </div>
+          <div class="dim-bar-bg">
+            <div class="dim-bar-fill" style="width:60%;background:#8B9BD1"></div>
+          </div>
+          <div class="dim-detail">2 kanály: PERFORMANCE_MAX, SEARCH</div>
+        </div>
+        
+    </div>
   </div>
 </div>
 
