@@ -90,6 +90,15 @@
       max-width: 620px; margin-bottom: 40px;
     }
     .hero-stats { display: flex; gap: 48px; flex-wrap: wrap; position: relative; }
+    .freshness-note {
+      margin-top: 36px; padding: 10px 18px;
+      background: rgba(0,101,247,0.12); border: 1px solid rgba(0,101,247,0.25);
+      border-radius: var(--radius-md); display: inline-flex;
+      align-items: flex-start; gap: 10px;
+      font-size: 12px; color: rgba(255,255,255,0.85);
+      max-width: 720px; position: relative; line-height: 1.5;
+    }
+    .freshness-note .fresh-icon { font-size: 14px; flex-shrink: 0; }
     .hero-stat { text-align: center; }
     .hero-stat .num { font-size: 36px; font-weight: 700; display: block; color: var(--dex-white); }
     .hero-stat .label { font-size: 11px; font-weight: 500; opacity: 0.6; text-transform: uppercase; letter-spacing: 1px; }
@@ -421,6 +430,83 @@
       border-radius: 3px; margin-right: 6px; vertical-align: middle;
     }
 
+    /* CREATIVE GROUPS */
+    .creative-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+    }
+    .creative-card {
+      background: var(--dex-white); border-radius: var(--radius-md);
+      padding: 20px 22px; box-shadow: var(--shadow);
+      border-top: 4px solid var(--dex-blue);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .creative-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0,101,247,0.14);
+    }
+    .creative-card.win { border-top-color: var(--dex-teal); }
+    .creative-card.danger { border-top-color: var(--dex-navy); background: linear-gradient(180deg, rgba(5,2,78,0.02), var(--dex-white)); }
+    .creative-head {
+      display: flex; justify-content: space-between;
+      align-items: flex-start; margin-bottom: 12px;
+    }
+    .creative-tag {
+      font-size: 15px; font-weight: 700;
+      font-family: var(--font-primary); color: var(--dex-navy);
+    }
+    .creative-meta {
+      font-size: 11px; color: var(--dex-muted);
+      text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600;
+    }
+    .creative-value {
+      display: flex; align-items: baseline; gap: 10px; margin-bottom: 10px;
+    }
+    .creative-roas {
+      font-size: 32px; font-weight: 700;
+      font-family: var(--font-primary); line-height: 1;
+    }
+    .creative-share {
+      font-size: 12px; color: var(--dex-muted);
+    }
+    .creative-detail {
+      font-size: 12px; color: var(--dex-muted); line-height: 1.5;
+    }
+    .creative-detail strong { color: var(--dex-navy); }
+    .creative-bar-bg {
+      height: 6px; background: var(--dex-light-bg);
+      border-radius: 3px; overflow: hidden; margin: 10px 0 8px;
+    }
+    .creative-bar-fill {
+      height: 100%; border-radius: 3px; transition: width 0.6s;
+    }
+
+    /* SALE vs BRAND COMPARISON */
+    .vs-compare {
+      display: grid; grid-template-columns: 1fr 80px 1fr; gap: 24px;
+      align-items: center; background: var(--dex-white);
+      border-radius: var(--radius-md); padding: 28px 32px;
+      box-shadow: var(--shadow); margin-top: 16px;
+    }
+    .vs-side { text-align: center; }
+    .vs-side .vs-label {
+      font-size: 12px; color: var(--dex-muted);
+      text-transform: uppercase; letter-spacing: 1px; font-weight: 600;
+      margin-bottom: 8px;
+    }
+    .vs-side .vs-roas {
+      font-size: 42px; font-weight: 700;
+      font-family: var(--font-primary); line-height: 1;
+    }
+    .vs-side .vs-stat {
+      font-size: 13px; color: var(--dex-muted); margin-top: 6px;
+    }
+    .vs-side.winner .vs-roas { color: var(--dex-teal); }
+    .vs-divider {
+      text-align: center; font-family: var(--font-primary);
+      font-size: 24px; color: var(--dex-muted);
+    }
+
     /* TREND CHART */
     .chart-wrapper {
       background: var(--dex-white); border-radius: var(--radius-md);
@@ -474,6 +560,10 @@
       <div class="hero-stat"><span class="num">11</span><span class="label">Kampane</span></div>
     </div>
     
+    <div class="freshness-note">
+      <span class="fresh-icon">✓</span>
+      <span>Spustené o 19:31 — dáta za uplynulé obdobie sú stabilné. Dnešné priebežné dáta Google počas dňa ešte upravuje.</span>
+    </div>
   </div>
 </div>
 
@@ -494,12 +584,12 @@
                   stroke="#16AB8B" stroke-width="14"
                   stroke-linecap="round"
                   stroke-dasharray="515.22"
-                  stroke-dashoffset="82.44"
+                  stroke-dashoffset="92.74"
                   transform="rotate(-90 110 110)"
                   style="transition: stroke-dashoffset 1.2s ease-out;"/>
         </svg>
         <div class="gauge-center">
-          <div class="gauge-number">84</div>
+          <div class="gauge-number">82</div>
           <div class="gauge-outof">/ 100</div>
           <div class="gauge-grade" style="background:#16AB8B">A · Veľmi dobré</div>
         </div>
@@ -507,7 +597,7 @@
 
       <div class="score-intro">
         <div class="tagline">Account Health Score</div>
-        <h2>Váš Google Ads účet má <span>skóre 84/100</span></h2>
+        <h2>Váš Google Ads účet má <span>skóre 82/100</span></h2>
         <p>Komplexné hodnotenie zdravia účtu naprieč 7 dimenziami — ROAS výkon, zbytočný spend, časové nastavenie, device biddingy, stabilita, kvalita search termov a diverzita kanálov. Skóre je vážený priemer; každá dimenzia má vlastnú váhu podľa dopadu na výkon.</p>
       </div>
     </div>
@@ -518,7 +608,7 @@
           <div class="dim-head">
             <span class="dim-icon">📈</span>
             <div class="dim-name">ROAS Performance</div>
-            <div class="dim-weight">w. 22</div>
+            <div class="dim-weight">w. 20</div>
           </div>
           <div class="dim-score-row">
             <div class="dim-score-num">100<span>/100</span></div>
@@ -534,7 +624,7 @@
           <div class="dim-head">
             <span class="dim-icon">💸</span>
             <div class="dim-name">Wasted Spend</div>
-            <div class="dim-weight">w. 18</div>
+            <div class="dim-weight">w. 15</div>
           </div>
           <div class="dim-score-row">
             <div class="dim-score-num">100<span>/100</span></div>
@@ -550,7 +640,7 @@
           <div class="dim-head">
             <span class="dim-icon">📅</span>
             <div class="dim-name">Schedule Efficiency</div>
-            <div class="dim-weight">w. 14</div>
+            <div class="dim-weight">w. 12</div>
           </div>
           <div class="dim-score-row">
             <div class="dim-score-num">85<span>/100</span></div>
@@ -566,7 +656,7 @@
           <div class="dim-head">
             <span class="dim-icon">📱</span>
             <div class="dim-name">Device Bid Optimization</div>
-            <div class="dim-weight">w. 14</div>
+            <div class="dim-weight">w. 10</div>
           </div>
           <div class="dim-score-row">
             <div class="dim-score-num">72<span>/100</span></div>
@@ -582,7 +672,7 @@
           <div class="dim-head">
             <span class="dim-icon">📊</span>
             <div class="dim-name">Anomaly Stability</div>
-            <div class="dim-weight">w. 9</div>
+            <div class="dim-weight">w. 8</div>
           </div>
           <div class="dim-score-row">
             <div class="dim-score-num">85<span>/100</span></div>
@@ -614,7 +704,7 @@
           <div class="dim-head">
             <span class="dim-icon">🎯</span>
             <div class="dim-name">Channel Diversity</div>
-            <div class="dim-weight">w. 5</div>
+            <div class="dim-weight">w. 3</div>
           </div>
           <div class="dim-score-row">
             <div class="dim-score-num">60<span>/100</span></div>
@@ -628,9 +718,41 @@
         
         <div class="dim-card">
           <div class="dim-head">
+            <span class="dim-icon">🎨</span>
+            <div class="dim-name">Creative Balance</div>
+            <div class="dim-weight">w. 8</div>
+          </div>
+          <div class="dim-score-row">
+            <div class="dim-score-num">90<span>/100</span></div>
+            <div class="dim-verdict">Zdravý mix</div>
+          </div>
+          <div class="dim-bar-bg">
+            <div class="dim-bar-fill" style="width:90%;background:var(--dex-teal)"></div>
+          </div>
+          <div class="dim-detail">Všetky významné angles majú zdravý ROAS (≥ 2.5x)</div>
+        </div>
+        
+        <div class="dim-card">
+          <div class="dim-head">
+            <span class="dim-icon">🔍</span>
+            <div class="dim-name">Cannibalization Hygiene</div>
+            <div class="dim-weight">w. 7</div>
+          </div>
+          <div class="dim-score-row">
+            <div class="dim-score-num">45<span>/100</span></div>
+            <div class="dim-verdict">Stredná kanibalizácia</div>
+          </div>
+          <div class="dim-bar-bg">
+            <div class="dim-bar-fill" style="width:45%;background:#8B9BD1"></div>
+          </div>
+          <div class="dim-detail">16 duplicitných keywords (€825.51) · 12.0% spendu</div>
+        </div>
+        
+        <div class="dim-card">
+          <div class="dim-head">
             <span class="dim-icon">💰</span>
             <div class="dim-name">Budget Pacing Discipline</div>
-            <div class="dim-weight">w. 10</div>
+            <div class="dim-weight">w. 9</div>
           </div>
           <div class="dim-score-row">
             <div class="dim-score-num">55<span>/100</span></div>
@@ -903,7 +1025,7 @@
 
 <!-- ═════════ SCRIPT 1+2 — WINNERS & LOSERS ═════════ -->
 <section>
-  <div class="container">
+  <div class="container" style="padding-top:0">
     <h2>💰 Silent Winners & Losers</h2>
     <p class="section-sub">Termy, keywords a produkty s neobvykle vysokým (winners) alebo nízkym (losers) ROAS · Signal pre scale-up / pause</p>
 
@@ -1322,8 +1444,325 @@
   </div>
 </section>
 
-<!-- ═════════ SCRIPT 6+7 — LOCATION + PLACEMENTS ═════════ -->
+<!-- ═════════ CREATIVE PERFORMANCE GROUPING ═════════ -->
 <section class="alt">
+  <div class="container">
+    <h2>🎨 Creative Performance — aké angles fungujú</h2>
+    <p class="section-sub">Kampane zgrupované podľa vzoru v názve (Sale, Brand, Kategória, Video, Remarketing...) · každý angle má vlastný ROAS a share na budgete</p>
+    <div class="creative-grid">
+      
+        <div class="creative-card win">
+          <div class="creative-head">
+            <div class="creative-tag">PMax</div>
+            <div class="creative-meta">4 kampane</div>
+          </div>
+          <div class="creative-value">
+            <span class="creative-roas" style="color:var(--dex-teal)">6.15x</span>
+            <span class="creative-share">ROAS · 46.0% spendu</span>
+          </div>
+          <div class="creative-bar-bg">
+            <div class="creative-bar-fill" style="width:100.0%;background:var(--dex-teal)"></div>
+          </div>
+          <div class="creative-detail">
+            <strong>€5 877.04</strong> spend · 503.9 konv. · €36 137.20 value
+            <br>CPA €11.66
+          </div>
+        </div>
+        
+        <div class="creative-card win">
+          <div class="creative-head">
+            <div class="creative-tag">Generic</div>
+            <div class="creative-meta">2 kampane</div>
+          </div>
+          <div class="creative-value">
+            <span class="creative-roas" style="color:var(--dex-teal)">6.26x</span>
+            <span class="creative-share">ROAS · 25.6% spendu</span>
+          </div>
+          <div class="creative-bar-bg">
+            <div class="creative-bar-fill" style="width:55.6%;background:var(--dex-teal)"></div>
+          </div>
+          <div class="creative-detail">
+            <strong>€3 267.58</strong> spend · 292.2 konv. · €20 439.19 value
+            <br>CPA €11.18
+          </div>
+        </div>
+        
+        <div class="creative-card win">
+          <div class="creative-head">
+            <div class="creative-tag">Shopping / Feed</div>
+            <div class="creative-meta">2 kampane</div>
+          </div>
+          <div class="creative-value">
+            <span class="creative-roas" style="color:var(--dex-teal)">6.02x</span>
+            <span class="creative-share">ROAS · 20.4% spendu</span>
+          </div>
+          <div class="creative-bar-bg">
+            <div class="creative-bar-fill" style="width:44.4%;background:var(--dex-teal)"></div>
+          </div>
+          <div class="creative-detail">
+            <strong>€2 609.46</strong> spend · 211.7 konv. · €15 698.01 value
+            <br>CPA €12.33
+          </div>
+        </div>
+        
+        <div class="creative-card win">
+          <div class="creative-head">
+            <div class="creative-tag">Ostatné</div>
+            <div class="creative-meta">4 kampane</div>
+          </div>
+          <div class="creative-value">
+            <span class="creative-roas" style="color:var(--dex-teal)">5.92x</span>
+            <span class="creative-share">ROAS · 4.8% spendu</span>
+          </div>
+          <div class="creative-bar-bg">
+            <div class="creative-bar-fill" style="width:10.4%;background:var(--dex-teal)"></div>
+          </div>
+          <div class="creative-detail">
+            <strong>€608.68</strong> spend · 39.7 konv. · €3 605.70 value
+            <br>CPA €15.33
+          </div>
+        </div>
+        
+        <div class="creative-card danger">
+          <div class="creative-head">
+            <div class="creative-tag">Kategória</div>
+            <div class="creative-meta">2 kampane</div>
+          </div>
+          <div class="creative-value">
+            <span class="creative-roas" style="color:var(--dex-navy)">0.66x</span>
+            <span class="creative-share">ROAS · 2.1% spendu</span>
+          </div>
+          <div class="creative-bar-bg">
+            <div class="creative-bar-fill" style="width:4.6%;background:var(--dex-navy)"></div>
+          </div>
+          <div class="creative-detail">
+            <strong>€270.94</strong> spend · 7.2 konv. · €178.49 value
+            <br>CPA €37.63
+          </div>
+        </div>
+        
+        <div class="creative-card win">
+          <div class="creative-head">
+            <div class="creative-tag">Brand</div>
+            <div class="creative-meta">1 kampaň</div>
+          </div>
+          <div class="creative-value">
+            <span class="creative-roas" style="color:var(--dex-teal)">3.26x</span>
+            <span class="creative-share">ROAS · 1.1% spendu</span>
+          </div>
+          <div class="creative-bar-bg">
+            <div class="creative-bar-fill" style="width:2.5%;background:var(--dex-teal)"></div>
+          </div>
+          <div class="creative-detail">
+            <strong>€145.27</strong> spend · 10.0 konv. · €474.13 value
+            <br>CPA €14.53
+          </div>
+        </div>
+        
+    </div>
+    
+  </div>
+</section>
+
+<!-- ═════════ KEYWORD OVERLAP / CANNIBALIZATION ═════════ -->
+<section>
+  <div class="container">
+    <h2>🔍 Kanibalizácia — duplicitné keywords naprieč ad groups</h2>
+    <p class="section-sub">Keď ten istý keyword exituje v 2+ ad groupoch, kampane si prebíjajú bidy proti sebe a dvíhajú si CPC. Toto je jedna z najčastejších skrytých straty ROAS.</p>
+
+    <div class="metrics-grid" style="margin-bottom:24px">
+      <div class="metric-card">
+        <h3>Duplicitné keywords</h3>
+        <div class="value">16</div>
+      </div>
+      <div class="metric-card">
+        <h3>Spend v duplikátoch</h3>
+        <div class="value">€825.51</div>
+      </div>
+      <div class="metric-card">
+        <h3>PMax brand-ish termy</h3>
+        <div class="value">0</div>
+        <div class="desc">ROAS &gt; 8x v PMax search terms</div>
+      </div>
+      <div class="metric-card">
+        <h3>PMax brand spend</h3>
+        <div class="value">€0</div>
+        <div class="desc">potenciálna kanibalizácia brand search</div>
+      </div>
+    </div>
+
+    <div class="cat-header">Top duplicitné keywords podľa spendu</div>
+    <table class="data-table">
+      <tr><th>Keyword</th><th>Inštancií</th><th>Ad groups</th><th>Match types</th><th>Spend</th><th>Konv.</th><th>ROAS</th></tr>
+      
+        <tr>
+          <td><strong>nebbia</strong></td>
+          <td>14×</td>
+          <td>5</td>
+          <td><span class="issue-tag">BROAD + PHRASE</span></td>
+          <td>€450.49</td>
+          <td>28.6</td>
+          <td><span class="badge badge-positive">5.12x</span></td>
+        </tr>
+        
+        <tr>
+          <td><strong>nebia</strong></td>
+          <td>11×</td>
+          <td>4</td>
+          <td><span class="issue-tag">BROAD + PHRASE</span></td>
+          <td>€110.35</td>
+          <td>8.0</td>
+          <td><span class="badge badge-positive">5.56x</span></td>
+        </tr>
+        
+        <tr>
+          <td><strong>nebbia shop</strong></td>
+          <td>5×</td>
+          <td>2</td>
+          <td><span class="issue-tag">BROAD + PHRASE</span></td>
+          <td>€66.43</td>
+          <td>4.0</td>
+          <td><span class="badge badge-positive">4.01x</span></td>
+        </tr>
+        
+        <tr>
+          <td><strong>nebbia legíny</strong></td>
+          <td>5×</td>
+          <td>2</td>
+          <td><span class="issue-tag">BROAD + PHRASE</span></td>
+          <td>€53.04</td>
+          <td>5.2</td>
+          <td><span class="badge badge-info">2.19x</span></td>
+        </tr>
+        
+        <tr>
+          <td><strong>nebshop</strong></td>
+          <td>2×</td>
+          <td>2</td>
+          <td><span class="issue-tag">PHRASE</span></td>
+          <td>€52.00</td>
+          <td>4.0</td>
+          <td><span class="badge badge-positive">3.73x</span></td>
+        </tr>
+        
+        <tr>
+          <td><strong>gym glamour legíny</strong></td>
+          <td>5×</td>
+          <td>3</td>
+          <td><span class="issue-tag">BROAD + PHRASE</span></td>
+          <td>€28.28</td>
+          <td>1.0</td>
+          <td><span class="badge badge-critical">0.26x</span></td>
+        </tr>
+        
+        <tr>
+          <td><strong>nebbia cz</strong></td>
+          <td>7×</td>
+          <td>3</td>
+          <td><span class="issue-tag">BROAD + PHRASE</span></td>
+          <td>€15.50</td>
+          <td>3.1</td>
+          <td><span class="badge badge-positive">17.90x</span></td>
+        </tr>
+        
+        <tr>
+          <td><strong>nebbia vypredaj</strong></td>
+          <td>2×</td>
+          <td>2</td>
+          <td><span class="issue-tag">PHRASE</span></td>
+          <td>€12.73</td>
+          <td>0</td>
+          <td><span class="badge badge-critical">0.00x</span></td>
+        </tr>
+        
+        <tr>
+          <td><strong>nebbia šortky</strong></td>
+          <td>4×</td>
+          <td>2</td>
+          <td><span class="issue-tag">PHRASE</span></td>
+          <td>€7.46</td>
+          <td>0</td>
+          <td><span class="badge badge-critical">0.00x</span></td>
+        </tr>
+        
+        <tr>
+          <td><strong>fitness nebbia</strong></td>
+          <td>7×</td>
+          <td>3</td>
+          <td><span class="issue-tag">BROAD + PHRASE</span></td>
+          <td>€7.09</td>
+          <td>0</td>
+          <td><span class="badge badge-critical">0.00x</span></td>
+        </tr>
+        
+        <tr>
+          <td><strong>nebbia sk</strong></td>
+          <td>2×</td>
+          <td>2</td>
+          <td><span class="issue-tag">PHRASE</span></td>
+          <td>€5.63</td>
+          <td>0</td>
+          <td><span class="badge badge-critical">0.00x</span></td>
+        </tr>
+        
+        <tr>
+          <td><strong>nebbia shop cz</strong></td>
+          <td>6×</td>
+          <td>2</td>
+          <td><span class="issue-tag">BROAD + PHRASE</span></td>
+          <td>€5.55</td>
+          <td>1.0</td>
+          <td><span class="badge badge-positive">37.99x</span></td>
+        </tr>
+        
+    </table>
+
+    
+  </div>
+</section>
+
+<!-- ═════════ ATTRIBUTION SIGNALS ═════════ -->
+<section class="alt">
+  <div class="container">
+    <h2>📊 Attribution signals — neklame vám Google?</h2>
+    <p class="section-sub">Porovnanie share spendu vs. share konverzií naprieč kanálmi · inflation ratio &gt; 1.3x je typický signál over-attribution</p>
+
+    <table class="data-table">
+      <tr><th>Kanál</th><th>Share spendu</th><th>Share konverzií</th><th>Inflation ratio</th><th>Signál</th></tr>
+      
+        <tr>
+          <td><strong>PERFORMANCE_MAX</strong></td>
+          <td>85.2%</td>
+          <td>89.9%</td>
+          <td><span class="badge badge-info">1.06x</span></td>
+          <td>V norme</td>
+        </tr>
+        
+        <tr>
+          <td><strong>SEARCH</strong></td>
+          <td>14.8%</td>
+          <td>10.1%</td>
+          <td><span class="badge badge-warning">0.68x</span></td>
+          <td>Under-attribution</td>
+        </tr>
+        
+    </table>
+
+    
+
+    <div class="finding" style="margin-top:24px;background:linear-gradient(135deg,rgba(0,101,247,0.04),rgba(22,171,139,0.02))">
+      <div class="bar" style="background:var(--dex-teal)"></div>
+      <div class="content">
+        <h4><span class="badge badge-info">🔗 Pre presnú attribution analýzu</span> Potrebujeme GA4 prístup</h4>
+        <p>Inflation ratio ukazuje iba <em>interný signál</em> v rámci Google Ads. Skutočnú pravdu zistíme až porovnaním s GA4 session-based dátami — Google často pripisuje konverzie rôznym kanálom rôzne (attribution modely, window). U klientov sme videli prípady kde Google ukazoval o 30-40% viac konverzií než GA4.</p>
+        <div class="rec"><strong>Next step:</strong> Pre presnú attribution analýzu nám poskytnite prístup do GA4 — porovnáme Google reportované konverzie s GA4 session-based dátami.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════ SCRIPT 6+7 — LOCATION + PLACEMENTS ═════════ -->
+<section>
   <div class="container">
     <h2>🗺️ Lokácie & Placementy</h2>
     <p class="section-sub">Mestá a Display/YouTube placementy ktoré kandidujú na vylúčenie</p>
@@ -1429,7 +1868,7 @@
   <div class="circle-f f1"></div>
   <div class="circle-f f2"></div>
   <img src="https://www.dexfinity.com/wp-content/uploads/2021/03/Logo-Small-Dark-Landscape@2x.png" alt="Dexfinity" class="footer-logo">
-  <p>AI Audit Deep · Nebshop · Vygenerované 2026-04-16 19:22</p>
+  <p>AI Audit Deep · Nebshop · Vygenerované 2026-04-16 19:31</p>
   <p style="margin-top:8px;font-size:11px;opacity:0.6">Audit bol vygenerovaný automaticky pomocou 9-skriptového AI frameworku aplikovaného cez Google Ads API. Odporúčania sú orientačné — finálne rozhodnutie vždy patrí stratégovi.</p>
   <div class="go-beyond">Go Beyond</div>
 </footer>
