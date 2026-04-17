@@ -69,6 +69,29 @@
     }
     .nav-links a:hover { color: var(--dex-blue); }
 
+    /* Hamburger — hidden on desktop, shown on mobile */
+    .hamburger {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+      z-index: 1000;
+      position: relative;
+    }
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--dex-navy);
+      margin: 5px 0;
+      border-radius: 2px;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+    .hamburger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
     /* --- HERO --- */
     .hero {
       background: var(--dex-navy);
@@ -859,7 +882,32 @@
       .ads-grid { grid-template-columns: 1fr; }
       .summary-grid { grid-template-columns: 1fr 1fr; }
       .summary-box { padding: 32px 24px; }
-      .nav-links { display: none; }
+      .hamburger { display: block; }
+      .nav-links {
+        display: none;
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100vh; height: 100dvh;
+        background: var(--dex-white);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0;
+        z-index: 999;
+        padding: 80px 40px 40px;
+      }
+      .nav-links.open { display: flex !important; }
+      .nav-links li {
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid var(--dex-border);
+      }
+      .nav-links a {
+        display: block;
+        padding: 16px 0;
+        font-size: 16px;
+        color: var(--dex-navy) !important;
+      }
       .metrics-grid { grid-template-columns: 1fr 1fr; }
     }
   </style>
@@ -874,23 +922,23 @@
 <!-- NAV -->
 <nav class="nav">
   <div class="container">
-    <img src="https://www.dexfinity.com/wp-content/uploads/2021/03/Logo-Small-Light-Landscape@2x.png" alt="Dexfinity" class="nav-logo">
-    <ul class="nav-links">
-      <li><a href="#meta">Meta Ads</a></li>
-      <li><a href="#google">Google Ads</a></li>
-      <li><a href="#findings">Zji&#353;t&#283;n&iacute;</a></li>
-      <li><a href="#product-gap">Produkty vs Reklamy</a></li>
-      <li><a href="#heureka">Heureka</a></li>
-      <li><a href="#gmb">Google Recenze</a></li>
-      <li><a href="#konkurencia">Konkurence</a></li>
-      <li><a href="#pagespeed">PageSpeed</a></li>
-      <li><a href="#recs">Doporu&#269;en&iacute;</a></li>
+    <a href="#top"><img src="https://www.dexfinity.com/wp-content/uploads/2021/03/Logo-Small-Light-Landscape@2x.png" alt="Dexfinity" class="nav-logo"></a>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#meta" onclick="closeMenu()">Meta Ads</a></li>
+      <li><a href="#google" onclick="closeMenu()">Google Ads</a></li>
+      <li><a href="#findings" onclick="closeMenu()">Zji&#353;t&#283;n&iacute;</a></li>
+      <li><a href="#product-gap" onclick="closeMenu()">Produkty vs Reklamy</a></li>
+      <li><a href="#social-proof" onclick="closeMenu()">Social Proof</a></li>
+      <li><a href="#konkurencia" onclick="closeMenu()">Konkurence</a></li>
+      <li><a href="#pagespeed" onclick="closeMenu()">PageSpeed</a></li>
+      <li><a href="#recs" onclick="closeMenu()">Doporu&#269;en&iacute;</a></li>
     </ul>
   </div>
 </nav>
 
 <!-- HERO -->
-<header class="hero">
+<header class="hero" id="top">
   <div class="circle-1"></div>
   <div class="circle-2"></div>
   <div class="circle-3"></div>
@@ -1612,31 +1660,31 @@
   </section>
 
   <!-- HEUREKA SOCIAL PROOF -->
-  <section id="heureka" class="alt">
+  <section id="social-proof" class="alt">
     <div class="container">
-    <h2>Social proof &mdash; Heureka recenze</h2>
-    <p class="section-sub">432 recenz&iacute;, hodnocen&iacute; 4,7/5, 85% doporu&#269;uje &mdash; nevyu&#382;it&yacute; potenci&aacute;l</p>
+    <h2>Social Proof &mdash; Google &amp; Heureka recenze</h2>
+    <p class="section-sub">915 ov&#283;&#345;en&yacute;ch recenz&iacute; nap&#345;&iacute;&#269; platformami (483 Google + 432 Heureka) &mdash; siln&yacute; nevyu&#382;it&yacute; potenci&aacute;l pro reklamy</p>
 
     <div class="metrics-grid" style="margin-bottom: 32px;">
       <div class="metric-card">
-        <h3>Hodnocen&iacute;</h3>
+        <h3>Google hodnocen&iacute;</h3>
+        <div class="value">4,8 / 5</div>
+        <div class="desc">483 recenz&iacute; &middot; zobrazen&eacute; v Google Ads</div>
+      </div>
+      <div class="metric-card">
+        <h3>Heureka hodnocen&iacute;</h3>
         <div class="value">4,7 / 5</div>
-        <div class="desc">celkov&aacute; spokojenost s obchodem</div>
+        <div class="desc">432 recenz&iacute; &middot; 85% doporu&#269;uje</div>
       </div>
       <div class="metric-card">
-        <h3>Recenze</h3>
-        <div class="value">432</div>
-        <div class="desc">ov&#283;&#345;en&yacute;ch z&aacute;kazn&iacute;k&#367;</div>
-      </div>
-      <div class="metric-card">
-        <h3>Doporu&#269;uje</h3>
-        <div class="value">85%</div>
-        <div class="desc">za posledn&iacute;ch 90 dn&iacute;</div>
+        <h3>Celkem recenz&iacute;</h3>
+        <div class="value">915</div>
+        <div class="desc">ve&#345;ejn&yacute;ch recenz&iacute; &middot; Google + Heureka</div>
       </div>
       <div class="metric-card">
         <h3>Top zm&iacute;nky</h3>
         <div class="value">Rychlost</div>
-        <div class="desc">doru&#269;en&iacute; (9 zm&iacute;nek), kvalita (4)</div>
+        <div class="desc">doru&#269;en&iacute; (9), kvalita (4), komunikace (3)</div>
       </div>
     </div>
 
@@ -1719,47 +1767,12 @@
       </div>
     </div>
 
-    <div class="cta-box" style="margin-top: 24px;">
-      <a href="https://obchody.heureka.cz/nebshop-cz/recenze/" target="_blank">
-        Zobrazit v&#353;ech 432 recenz&iacute; na Heurece &rarr;
-      </a>
-    </div>
-    </div>
-  </section>
-
-  <!-- GOOGLE REVIEWS / GMB -->
-  <section id="gmb">
-    <div class="container">
-    <h2>Google Recenze</h2>
-    <p class="section-sub">Hodnocen&iacute; zobrazen&eacute; p&#345;&iacute;mo v Google Ads &mdash; siln&yacute; social proof</p>
-
-    <div class="metrics-grid" style="margin-bottom: 32px;">
-      <div class="metric-card">
-        <h3>Google hodnocen&iacute;</h3>
-        <div class="value">4,8 / 5</div>
-        <div class="desc">zobrazen&eacute; v Google Ads</div>
-      </div>
-      <div class="metric-card">
-        <h3>Google recenze</h3>
-        <div class="value">483</div>
-        <div class="desc">ov&#283;&#345;en&yacute;ch z&aacute;kazn&iacute;k&#367;</div>
-      </div>
-      <div class="metric-card">
-        <h3>Heureka recenze</h3>
-        <div class="value">432</div>
-        <div class="desc">4,7/5 &mdash; 85% doporu&#269;uje</div>
-      </div>
-      <div class="metric-card">
-        <h3>Celkem</h3>
-        <div class="value">915</div>
-        <div class="desc">ve&#345;ejn&yacute;ch recenz&iacute; celkov&#283;</div>
-      </div>
-    </div>
+    <div class="cat-header" style="margin-top: 40px;">Google Ads aktivace &mdash; hv&#283;zdi&#269;ky p&#345;&iacute;mo v reklam&aacute;ch</div>
 
     <div class="finding">
       <div class="bar low"></div>
       <div class="content">
-        <h4><span class="badge badge-positive">Siln&yacute; z&aacute;klad</span> 915 recenz&iacute; nap&#345;&iacute;&#269; platformami &mdash; nevyu&#382;it&yacute; materi&aacute;l pro reklamy</h4>
+        <h4><span class="badge badge-positive">Siln&yacute; z&aacute;klad</span> 915 recenz&iacute; nap&#345;&iacute;&#269; platformami &mdash; p&#345;&iacute;mo pou&#382;iteln&eacute; v Google Ads</h4>
         <p>Nebshop m&aacute; excelentn&iacute; hodnocen&iacute; (4,8 Google + 4,7 Heureka) a 915 ve&#345;ejn&yacute;ch recenz&iacute; celkov&#283;. Tento social proof se d&aacute; p&#345;&iacute;mo prom&iacute;tnout do efektivn&#283;j&#353;&iacute;ch reklam a vy&#353;&#353;&iacute;ho konverzn&iacute;ho pom&#283;ru.</p>
         <div class="rec"><strong>Jak vyu&#382;&iacute;t v reklam&aacute;ch:</strong><br>
         &bull; <strong>Google Ads headlines:</strong> &bdquo;Hodnocen&iacute; 4,8/5 na Google&ldquo; &mdash; &bdquo;915 spokojn&yacute;ch z&aacute;kazn&iacute;k&#367;&ldquo; &mdash; &bdquo;Nejv&#283;t&#353;&iacute; v&yacute;b&#283;r NEBBIA v &#268;R&ldquo;<br>
@@ -1769,6 +1782,12 @@
         &bull; <strong>Na webu:</strong> P&#345;idat Google Reviews widget na homepage + produktov&eacute; str&aacute;nky
         </div>
       </div>
+    </div>
+
+    <div class="cta-box" style="margin-top: 24px;">
+      <a href="https://obchody.heureka.cz/nebshop-cz/recenze/" target="_blank">
+        Zobrazit v&#353;ech 432 recenz&iacute; na Heurece &rarr;
+      </a>
     </div>
     </div>
   </section>
@@ -2058,8 +2077,26 @@
   <img src="https://www.dexfinity.com/wp-content/uploads/2021/03/Logo-Small-Dark-Landscape@2x.png" alt="Dexfinity" class="footer-logo">
   <p>External Ads Audit &mdash; Nebshop.cz &mdash; P&#345;ipraveno 7. dubna 2026</p>
   <p>Na z&aacute;klad&#283; ve&#345;ejn&#283; dostupn&yacute;ch dat z Meta Ad Library a Google Ads Transparency Center.</p>
+  <p style="margin-top: 12px;">Ot&aacute;zky? Nap&iacute;&scaron;te na <a href="mailto:hello@dexfinity.com" style="color: var(--dex-blue); text-decoration: none;">hello@dexfinity.com</a> alebo zavolajte <a href="tel:+421918435105" style="color: var(--dex-blue); text-decoration: none;">+421 918 435 105</a></p>
   <div class="go-beyond">Go Beyond</div>
 </footer>
+
+<script>
+function toggleMenu() {
+  var nav = document.getElementById('navLinks');
+  var btn = document.querySelector('.hamburger');
+  nav.classList.toggle('open');
+  btn.classList.toggle('active');
+  document.body.style.overflow = nav.classList.contains('open') ? 'hidden' : '';
+}
+function closeMenu() {
+  var nav = document.getElementById('navLinks');
+  var btn = document.querySelector('.hamburger');
+  nav.classList.remove('open');
+  btn.classList.remove('active');
+  document.body.style.overflow = '';
+}
+</script>
 
 </body>
 </html>
