@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nebshop — AI Audit Deep | Dexfinity</title>
+  <title>Nebshop — Dex Grader | Dexfinity</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Questrial&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -246,6 +246,31 @@
       margin-top: 16px; color: var(--dex-blue);
       font-weight: 700; letter-spacing: 2px;
       text-transform: uppercase; font-size: 13px; position: relative;
+    }
+
+    /* METHODOLOGY BAR */
+    .methodology-bar {
+      background: var(--dex-white); padding: 40px 0;
+      border-bottom: 1px solid var(--dex-border);
+    }
+    .methodology-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 32px; align-items: start;
+    }
+    .method-item { text-align: left; }
+    .method-num {
+      font-size: 40px; font-weight: 700;
+      font-family: var(--font-primary); color: var(--dex-blue);
+      line-height: 1; margin-bottom: 4px;
+    }
+    .method-label {
+      font-size: 13px; font-weight: 600; color: var(--dex-navy);
+      font-family: var(--font-secondary);
+      text-transform: uppercase; letter-spacing: 0.5px;
+      margin-bottom: 6px;
+    }
+    .method-desc {
+      font-size: 12px; color: var(--dex-muted); line-height: 1.5;
     }
 
     /* SCORE SECTION */
@@ -534,7 +559,7 @@
 <body>
 
 <!-- URGENCY BAR -->
-<div class="urgency">🔓 Premium Script Audit · 9 Google Ads skriptov aplikovaných na váš účet</div>
+<div class="urgency">🎯 Dex Grader · 13 signálov · 10 dimenzií · 1 grade pre váš Google Ads účet</div>
 
 <!-- NAV -->
 <nav class="nav">
@@ -548,10 +573,10 @@
 <div class="hero">
   <div class="circle-1"></div><div class="circle-2"></div><div class="circle-3"></div>
   <div class="container">
-    <span class="hero-badge">AI Script Audit Deep · 30 dní</span>
-    <div class="tagline">Dexfinity · Premium Analysis</div>
-    <h1>Nebshop <span>— 9 skriptov</span></h1>
-    <p class="sub">Simulácia 9 automatizačných skriptov (Winners/Losers, Search Excluder, Schedule Analyzer, Device Bids, Anomaly Detector a ďalšie) aplikovaná priamo na váš Google Ads účet · Obdobie 2026-03-17 — 2026-04-15</p>
+    <span class="hero-badge">Dex Grader · Google Ads · 30 dní</span>
+    <div class="tagline">Dexfinity · Account Health Grader</div>
+    <h1>Grade Your Google Ads — <span>Nebshop</span></h1>
+    <p class="sub">Dex Grader je proprietárny Dexfinity framework, ktorý cez Google Ads API aplikuje <strong style="color:#fff">13 analytických signálov</strong> a skóruje váš účet na škále <strong style="color:#fff">0–100 (A+/A/B/C/D/F)</strong> naprieč 10 váženými dimenziami — od ROAS výkonu cez kanibalizáciu keywords po DoW-weighted budget pacing. Obdobie 2026-03-17 — 2026-04-15.</p>
     
     <div class="hero-stats">
       <div class="hero-stat"><span class="num">€6 901.92</span><span class="label">Spend / 30 dní</span></div>
@@ -563,6 +588,34 @@
     <div class="freshness-note">
       <span class="fresh-icon">✓</span>
       <span>Spustené o 19:31 — dáta za uplynulé obdobie sú stabilné. Dnešné priebežné dáta Google počas dňa ešte upravuje.</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═════════ METHODOLOGY BAR ═════════ -->
+<div class="methodology-bar">
+  <div class="container">
+    <div class="methodology-grid">
+      <div class="method-item">
+        <div class="method-num">13</div>
+        <div class="method-label">Analytických signálov</div>
+        <div class="method-desc">9 Google Ads Scripts + DoW pacing + creative grouping + kanibalizácia + attribution signals</div>
+      </div>
+      <div class="method-item">
+        <div class="method-num">10</div>
+        <div class="method-label">Vážených dimenzií</div>
+        <div class="method-desc">Každá dimenzia dostane 0–100 a vlastnú váhu — súčet = váš grade</div>
+      </div>
+      <div class="method-item">
+        <div class="method-num">A–F</div>
+        <div class="method-label">Škálovanie gradu</div>
+        <div class="method-desc">A+ Vynikajúce (≥90) · A Veľmi dobré · B Dobré · C Priemerné · D Slabé · F Kritické</div>
+      </div>
+      <div class="method-item">
+        <div class="method-num">€€€</div>
+        <div class="method-label">Wasted spend kalkulácia</div>
+        <div class="method-desc">Konkrétne vyčíslenie stratených peňazí cez search excluder, location, placements, schedule</div>
+      </div>
     </div>
   </div>
 </div>
@@ -597,8 +650,8 @@
 
       <div class="score-intro">
         <div class="tagline">Account Health Score</div>
-        <h2>Váš Google Ads účet má <span>skóre 82/100</span></h2>
-        <p>Komplexné hodnotenie zdravia účtu naprieč 7 dimenziami — ROAS výkon, zbytočný spend, časové nastavenie, device biddingy, stabilita, kvalita search termov a diverzita kanálov. Skóre je vážený priemer; každá dimenzia má vlastnú váhu podľa dopadu na výkon.</p>
+        <h2>Váš Google Ads grade je <span>A · 82/100</span></h2>
+        <p>Dex Grader hodnotí zdravie účtu naprieč <strong style="color:#fff">10 váženými dimenziami</strong>: ROAS výkon (20), zbytočný spend (15), schedule efficiency (12), device bidding (10), budget pacing (9), anomaly stability (8), search term quality (8), creative balance (8), cannibalization hygiene (7), channel diversity (3). Každá dimenzia má skóre 0–100 a vlastnú váhu podľa dopadu. Vážený priemer = váš grade.</p>
       </div>
     </div>
 
@@ -1825,7 +1878,7 @@
 <section class="alt">
   <div class="container">
     <h2>Celková identifikovaná úspora</h2>
-    <p class="section-sub">Súhrn potenciálnych úspor zo všetkých 9 skriptov · Spolu s dopadom na ROAS</p>
+    <p class="section-sub">Súhrn potenciálnych úspor zo všetkých 13 Dex Grader signálov · Spolu s dopadom na ROAS</p>
 
     <div class="summary-box">
       <div class="label">Zbytočný spend identifikovaný týmito 9 skriptami</div>
@@ -1868,8 +1921,8 @@
   <div class="circle-f f1"></div>
   <div class="circle-f f2"></div>
   <img src="https://www.dexfinity.com/wp-content/uploads/2021/03/Logo-Small-Dark-Landscape@2x.png" alt="Dexfinity" class="footer-logo">
-  <p>AI Audit Deep · Nebshop · Vygenerované 2026-04-16 19:31</p>
-  <p style="margin-top:8px;font-size:11px;opacity:0.6">Audit bol vygenerovaný automaticky pomocou 9-skriptového AI frameworku aplikovaného cez Google Ads API. Odporúčania sú orientačné — finálne rozhodnutie vždy patrí stratégovi.</p>
+  <p>Dex Grader · Nebshop · Vygenerované 2026-04-16 19:31</p>
+  <p style="margin-top:8px;font-size:11px;opacity:0.6">Dex Grader · 13 analytických signálov · 10 vážených dimenzií · Vygenerované cez Google Ads API. Odporúčania sú orientačné — finálne rozhodnutie vždy patrí stratégovi.</p>
   <div class="go-beyond">Go Beyond</div>
 </footer>
 
